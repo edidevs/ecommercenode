@@ -1,0 +1,24 @@
+<% include layouts/adminheader %>
+
+    <h2 class="page-title">Add a Category</h2>
+      <a href="/dashboard/categories" class="btn btn-primary">Back</a>
+      <br></br>
+
+      <form method="post" action="/dashboard/categories/add-cat">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" placeholder="title" value="<%= title %>" name="title"/>
+        </div>
+         <div class="form-group">
+            <label for="slug">Slug</label>
+            <input class="form-control" type="text" placeholder="slug" value="<%= slug %>" name="slug"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary form-control">Submit</button>
+        </div>
+        
+      </form>
+
+      
+
+<% include layouts/adminfooter %>

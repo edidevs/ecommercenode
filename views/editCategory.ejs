@@ -1,0 +1,27 @@
+<% include layouts/header %>
+
+
+<h2 class="page-title">Edit a Category</h2>
+  <a href="/dashboard/categories" class="btn btn-primary">Back</a>
+  <br></br>
+
+  <form method="post" action="/dashboard/categories/edit-cat/<%= categoryId %>">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" placeholder="title" value="<%= categories.title %>" name="title"/>
+    </div>
+     <div class="form-group">
+        <label for="slug">Slug</label>
+        <input class="form-control" type="text" placeholder="slug" value="<%= categories.slug %>" name="slug"/>
+    </div>
+     
+        <input type="hidden" name="categoryId" value="<%= categories.categoryId %>" >
+        <button class="btn btn-primary form-control">Submit</button>
+    
+    
+  </form>
+
+  
+
+<% include layouts/footer %>
+    

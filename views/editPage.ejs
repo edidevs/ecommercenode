@@ -1,0 +1,31 @@
+<% include layouts/header %>
+
+
+<h2 class="page-title">Edit a page</h2>
+  <a href="/dashboard/pages" class="btn btn-primary">Back</a>
+  <br></br>
+
+  <form method="post" action="/dashboard/pages/edit-page/<%= pageId %>">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" placeholder="title" value="<%= pages.title %>" name="title"/>
+    </div>
+     <div class="form-group">
+        <label for="slug">Slug</label>
+        <input class="form-control" type="text" placeholder="slug" value="<%= pages.slug %>" name="slug"/>
+    </div>
+     <div class="form-group">
+        <label for="content">Content</label>
+        <textarea name="content" id="editorPage" class="ck-editor__editable form-control" cols="30" rows="10" value="<%= content %>" class="form-control"></textarea>
+    </div>
+    
+        <input type="hidden" name="pageId" value="<%= pages.pageId %>" >
+        <button class="btn btn-primary form-control">Submit</button>
+    
+    
+  </form>
+
+  
+
+<% include layouts/footer %>
+    

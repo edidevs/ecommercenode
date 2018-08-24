@@ -1,0 +1,54 @@
+<% include layouts/adminheader %>
+
+    <h2 class="page-title">Pages</h2>
+    <a class="btn btn-primary" href="/dashboard/pages/add-page">Add a new page</a>
+    <br><br>
+    <table class="table table-stripped sorting">
+    <thead>
+        <tr class="home">
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        
+       
+        <% pages.forEach(function(page){ %>
+            
+            <tr id="id_<%= page.pageId %>" class="<%= page.slug %>" >
+
+                <td><%= page.title %></td>
+                <td><a href="/dashboard/pages/edit-page/<%= page.pageId %>">Edit</a></td>
+                <td><a class="deletePopUp" href="/dashboard/pages/delete-page/<%= page.pageId %>">Delete</a></td>
+            </tr>
+
+            
+
+
+        <%  }); %>
+    
+    
+    </tbody>
+
+    </table>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script >
+    
+        $("tbody").sortable({
+
+
+            items: "tr:not('.home')",
+            placeHolder: "ui-state-highlight",
+            update: function(){
+                let ids = $("tbody").sortable("serlalize");
+                let url = "/dashboard/pages/reorder-page";
+
+                $.post(url, ids);
+            },
+        });
+    
+    </script>
+    
+<% include layouts/adminfooter %>

@@ -1,0 +1,43 @@
+<% include layouts/header %>
+
+    <h2 class="page-title">Products</h2>
+    <a class="btn btn-primary" href="/dashboard/products/add-product">Add a new product</a>
+    <br><br>
+    <table class="table table-stripped sorting">
+    <thead>
+        <tr class="home">
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        
+       
+        <% products.forEach(function(product){ %>
+            
+            <tr id="id_<%= product.productId %>" class="<%= product.slug %>" >
+
+                <td><%= product.title %></td>
+                <td><a href="/dashboard/products/edit-product/<%= product.productId %>">Edit</a></td>
+                <td><a class="deletePopUp" href="/dashboard/products/delete-product/<%= product.productId %>">Delete</a></td>
+            </tr>
+
+            
+
+
+        <%  }); %>
+    
+    
+    </tbody>
+
+    </table>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script >
+    
+       
+    
+    </script>
+    
+<% include layouts/footer %>

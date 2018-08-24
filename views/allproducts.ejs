@@ -1,0 +1,20 @@
+<% include layouts/header %>
+    <div class="row products">
+            <% products.forEach(function(p){ %>
+            
+                <div class="col-xs-12 cold-md-4">
+
+                    <a class="pa" href="/products/<%= p.slug %>">
+                        <img class="pimage" src="/product_images/<%= p.productId %>/<%= p.image %>">
+                    </a>
+                    <h4><%= p.title %></h3>
+                    <h5><%= p.price %></h5>
+                    <h6><a class="vd" href="/products/<%= p.slug %>">View Details</a></h6>
+                </div> 
+     
+     
+             <%  }); %>
+
+    </div>
+    
+<% include layouts/footer %>

@@ -1,0 +1,43 @@
+<% include layouts/header %>
+
+    <h2 class="page-title">Categories</h2>
+    <a class="btn btn-primary" href="/dashboard/categories/add-cat">Add a new category</a>
+    <br><br>
+    <table class="table table-stripped sorting">
+    <thead>
+        <tr class="home">
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        
+       
+        <% categories.forEach(function(cat){ %>
+            
+            <tr id="id_<%= cat.categoryId %>" class="<%= cat.slug %>" >
+
+                <td><%= cat.title %></td>
+                <td><a href="/dashboard/categories/edit-cat/<%= cat.categoryId %>">Edit</a></td>
+                <td><a class="deletePopUp" href="/dashboard/categories/delete-cat/<%= cat.categoryId %>">Delete</a></td>
+            </tr>
+
+            
+
+
+        <%  }); %>
+    
+    
+    </tbody>
+
+    </table>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script >
+    
+       
+    
+    </script>
+    
+<% include layouts/footer %>
